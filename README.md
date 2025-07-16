@@ -27,9 +27,10 @@ It reconciles a customer's identity across multiple purchases based on email & p
   "email": "lorraine@hillvalley.edu",
   "phoneNumber": "123456"
 }
+```
 
-Example Response
-
+#### Example Response
+```json
 {
   "contact": {
     "primaryContatctId": 1,
@@ -38,70 +39,86 @@ Example Response
     "secondaryContactIds": []
   }
 }
+```
 
+---
 
-2️⃣ Debug All Contacts
-GET /contacts
+### 2️⃣ Debug All Contacts
+
+**GET** `/contacts`  
 Lists all rows in the database.
 
-🛠️ Tech Stack
-FastAPI → Backend framework
+---
 
-SQLite + SQLAlchemy → Database
+## 🛠️ Tech Stack
 
-Uvicorn → ASGI server
+- **FastAPI** → Backend framework  
+- **SQLite + SQLAlchemy** → Database  
+- **Uvicorn** → ASGI server  
+- **Render.com** → Hosting (free tier)
 
-Render.com → Hosting (free tier)
+---
 
+## 🖥️ Run Locally
 
-🖥️ Run Locally
-Clone this repo
-
-
+### 1️⃣ Clone this repo
+```bash
 git clone https://github.com/<your-username>/bitespeed-identity-reconciliation.git
 cd bitespeed-identity-reconciliation
+```
 
-Install dependencies
-
+### 2️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
-
-Run the server
-
+### 3️⃣ Run the server
+```bash
 uvicorn main:app --reload
-Open in browser
+```
 
-Swagger Docs → http://127.0.0.1:8000/docs
+### 4️⃣ Open in browser
+- Swagger Docs → [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
+- Debug Contacts → [http://127.0.0.1:8000/contacts](http://127.0.0.1:8000/contacts)
 
-Debug Contacts → http://127.0.0.1:8000/contacts
+---
 
+## ✅ Test Cases
 
-✅ Test Cases
-Case 1: New Primary
-
+### Case 1: New Primary
+```json
 {
   "email": "lorraine@hillvalley.edu",
   "phoneNumber": "123456"
 }
-Case 2: Same Phone, New Email → Creates Secondary
+```
 
+### Case 2: Same Phone, New Email → Creates Secondary
+```json
 {
   "email": "mcfly@hillvalley.edu",
   "phoneNumber": "123456"
 }
-Case 3: New Primary
+```
 
+### Case 3: New Primary
+```json
 {
   "email": "biffsucks@hillvalley.edu",
   "phoneNumber": "717171"
 }
-Case 4: Merge Primaries
+```
 
+### Case 4: Merge Primaries
+```json
 {
   "email": "lorraine@hillvalley.edu",
   "phoneNumber": "717171"
 }
+```
 
-📜 License
+---
+
+## 📜 License
+
 MIT
-

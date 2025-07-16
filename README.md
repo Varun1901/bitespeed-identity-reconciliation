@@ -7,7 +7,7 @@ It reconciles a customer's identity across multiple purchases based on email & p
 
 ## 🚀 Hosted API
 
-- **Base URL:** `https://<your-render-url>`  
+- **Base URL:** `https://bitespeed-identity-reconciliation-n4tw.onrender.com`  
 - **Endpoints:**
   - `POST /identify` → Identify & link customer contacts
   - `GET /contacts` → Debug endpoint showing all stored contacts
